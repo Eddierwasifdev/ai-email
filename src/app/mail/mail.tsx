@@ -1,7 +1,12 @@
 "use client";
-import { ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
 import { Separator } from "@/components/ui/separator";
 import { Sidebar } from "@/components/ui/sidebar";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import React from "react";
@@ -60,6 +65,38 @@ const mail = ({
             <div className="flex-1"></div>
             {/* AI */}
           </div>
+        </ResizablePanel>
+        {/*  */}
+        <ResizableHandle withHandle />
+        <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
+          <Tabs defaultValue="inbox">
+            <div className="flex items-center px-4 py-2">
+              <h1 className="font text-xl">Inbox</h1>
+              <TabsList className="ml-auto space-x-4">
+                <TabsTrigger
+                  value="inbox"
+                  className="text-zinc-600 dark:text-zinc-300"
+                >
+                  Inbox
+                </TabsTrigger>
+                <TabsTrigger
+                  value="done"
+                  className="text-zinc-600 dark:text-zinc-300"
+                >
+                  Done
+                </TabsTrigger>
+              </TabsList>
+            </div>
+            <Separator />
+            {/* Search bar */}
+            Search
+            <TabsContent value="inbox">Inbox</TabsContent>
+            <TabsContent value="done">Done</TabsContent>
+          </Tabs>
+        </ResizablePanel>
+        <ResizableHandle withHandle />
+        <ResizablePanel defaultSize={defaultLayout[2]} minSize={30}>
+          Thread Display
         </ResizablePanel>
       </ResizablePanelGroup>
     </TooltipProvider>
