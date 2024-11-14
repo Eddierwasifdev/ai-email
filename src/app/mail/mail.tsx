@@ -96,7 +96,7 @@ const mail = ({
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={defaultLayout[2]} minSize={30}>
-          Thread Display
+          Thread Displays
         </ResizablePanel>
       </ResizablePanelGroup>
     </TooltipProvider>
